@@ -1,0 +1,26 @@
+{
+  "name": "easeljs-fun",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "watchify -t coffeeify src/main.coffee -o public/dist/main.js",
+    "build": "browserify -t coffeeify src/main.coffee -o public/dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/abradley2/easeljs-fun"
+  },
+  "author": "Tony Bradley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/abradley2/easeljs-fun/issues"
+  },
+  "homepage": "https://github.com/abradley2/easeljs-fun",
+  "devDependencies": {
+    "browserify": "^13.0.0",
+    "coffeeify": "^2.0.1",
+    "watchify": "^3.7.0"
+  }
+}
