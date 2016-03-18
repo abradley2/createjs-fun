@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "watchify -t coffeeify src/main.coffee -o public/dist/main.js",
-    "build": "browserify -t coffeeify src/main.coffee -o public/dist/main.js"
+    "watch": "watchify -t coffeeify src/main.coffee -o public/main.js",
+    "build": "browserify -t coffeeify src/main.coffee -o public/main.js"
   },
   "repository": {
     "type": "git",

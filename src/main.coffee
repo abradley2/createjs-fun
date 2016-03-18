@@ -1,6 +1,5 @@
-config = require './config.coffee'
+Director = require './Director.coffee'
+
 
 document.addEventListener 'DOMContentLoaded', ->
-    console.log 'content loaded'
-    require './stage.coffee'
-    # Set size of canvas according to config
+    director = new Director()
