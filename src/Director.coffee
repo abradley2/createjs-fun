@@ -1,3 +1,5 @@
+mobs = require './mobs/index.coffee'
+
 class Director extends createjs.EventDispatcher
 
     constructor: ->
@@ -14,17 +16,26 @@ class Director extends createjs.EventDispatcher
         # wire the stage to the canvas
         @stage = new createjs.Stage 'canvas'
 
-        # track application heartbeat
+        # initialize entities array
+        @entities = []
+
+        # ticker is how often to perform logic
         @ticker = createjs.Ticker
         @ticker.framerate = 60
-        @ticker.addEventListener 'tick', @handleTick
-        console.log 'start!'
+        @ticker.on 'tick', @handleTick.bind(this)
+
+        # how often to draw
+        @framerate = 30
+        @drawInterval = setInterval @draw.bind(this), (1000 / @framerate)
 
     handleTick: (event) ->
         if event.paused
             return false
         else
-            console.log 'tick!'
-            return true
+            @entities.forEach (entity) =>
+                entity.dispatchEvent 'update'
+
+    draw: ->
+        @stage.update()
 
 module.exports = Director
